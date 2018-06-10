@@ -1,0 +1,85 @@
+<%- include header %>
+<style>
+	.col-md-4 img
+	{
+		min-height: 40px !important;
+	}
+</style>
+<body>
+
+<div class="container-fluid col-md-12 wed_service_container">
+	<img src="../../static/service.jpg" class="img-responsive">
+	<div class="text-center service_heading">
+		<h2>OUR SERVICES</h2>
+	</div>
+</div>
+
+<div class="container service_title">
+	<h2 class="text-center">Let's Plan Your Perfect <%= data_category_name %></h2>
+	<div class="row">
+		<% for(var i=0; i< data_service.length; i++) 
+			{  
+				if(data_service[i].category_id == 1 ) 
+				{ %>
+					<div class="col-md-4">
+						<img src="../../<%= data_service[i].service_img %>" class="img-responsive">
+						<a href="#"><h4 class="text-center"><%= data_service[i].service_name %></h4></a>
+						<h3 class="text-center">$<%= data_service[i].book_amount %>.00</h3>
+						<!-- <p>Id:<%= data_service[i].service_id %></p> -->
+							<% if(pid ==  data_service[i].service_id ){ %>
+								<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+									<div class="text-center order_btndiv"><a href="/cart"><button class="btn btn-lg btn-default order_button"
+										>VIEW CART</button></a>
+									</div>
+								</a>
+							<% }else {%>
+								<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+									<div class="text-center order_btndiv"><button class="btn btn-lg btn-default order_button"
+										>ORDER NOW</button>
+									</div>
+								</a>
+						
+							<% } %>
+					</div>
+				<% } 
+				else if(data_service[i].category_id == 2 ) 
+				{ %>
+					<div class="col-md-4">
+						<img src="../../<%= data_service[i].service_img %>" class="img-responsive">
+						<a href="#"><h4 class="text-center"><%= data_service[i].service_name %></h4></a>
+						<h3 class="text-center">$<%= data_service[i].book_amount %>.00</h3>
+						<% if(pid ==  data_service[i].service_id ){ %>
+							<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+								<div class="text-center order_btndiv"><a href="/cart"><button class="btn btn-lg btn-default order_button">VIEW CART</button></a></div>
+							</a>
+						<% }else {%>
+							<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+								<div class="text-center order_btndiv"><button class="btn btn-lg btn-default order_button">ORDER NOW</button></div>
+							</a>
+						<% } %>
+					</div>
+				<%}
+				else if(data_service[i].category_id == 3 ) 
+				{ %>
+					<div class="col-md-4">
+						<img src="../../<%= data_service[i].service_img %>" class="img-responsive">
+						<a href="#"><h4 class="text-center"><%= data_service[i].service_name %></h4></a>
+						<h3 class="text-center">$<%= data_service[i].book_amount %>.00</h3>
+						<% if(pid ==  data_service[i].service_id ){ %>
+							<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+								<div class="text-center order_btndiv"><a href="/cart"><button class="btn btn-lg btn-default order_button">VIEW CART</button></a></div>
+							</a>
+						<% }else {%>
+							<a href="/wed_cart/<%= data_service[i].service_id %>/<%= data_category_name %>/<%= data_service[i].category_id %>">
+								<div class="text-center order_btndiv"><button class="btn btn-lg btn-default order_button">BOOK NOW</button></div>
+							</a>
+						<% } %>
+					</div>
+				<%}%>
+
+		<% } %>
+	</div>
+</div>
+
+
+<%- include footer %> 

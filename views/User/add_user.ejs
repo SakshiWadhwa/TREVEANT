@@ -1,0 +1,77 @@
+<%- include header %> 
+<style>
+	.add_us
+	{
+		padding-top: 120px;
+	}
+</style>
+
+	
+	<div class="container add_us">
+		<% if(typeof data != 'undefined'){ %>
+
+			<form action="/update_us/<%= data[0].user_email %>" method="POST">
+
+				<div class="form-group">
+					<label for="User"> First Name: </label>
+					<input type="text" name="us_firstname" class="form-control" placeholder="Enter First Name: " value="<%= data[0].user_firstname %>" readonly>
+				</div>
+
+				<div class="form-group">
+					<label for="User"> Name: </label>
+					<input type="email" name="us_email" class="form-control" placeholder="Email: " value="<%= data[0].user_email %>" readonly>
+				</div>
+				
+				<div class="form-group">
+					<label for="pswd">Password: </label>
+					<input type="password" name="us_password" class="form-control" placeholder="Enter Password">
+				</div>		
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="us_status">
+						<option class="active"><%= data[0].user_status %></option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-default">Update</button>
+			</form>
+			
+		<% } else { %>
+			<form action="/adduser" method="POST">
+
+				<div class="form-group">
+					<label for="User"> First Name: </label>
+					<input type="text" name="us_firstname" class="form-control" placeholder="Enter First Name: ">
+				</div>
+
+				<div class="form-group">
+					<label for="User"> Last Name: </label>
+					<input type="text" name="us_lastname" class="form-control" placeholder="Enter Last Name: ">
+				</div>
+
+				<div class="form-group">
+					<label for="User"> Email: </label>
+					<input type="email" name="us_email" class="form-control" placeholder="Enter Email: ">
+				</div>
+				
+				<div class="form-group">
+					<label for="pswd">Password: </label>
+					<input type="password" name="us_password" class="form-control" placeholder="Enter Password">
+				</div>		
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="us_status">
+						<option class="active">Select</option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		<% } %>
+	</div>
+</body>
+</html>

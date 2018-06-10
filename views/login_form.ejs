@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet"  href="login_form.css">
+</head>
+<body>
+	
+	<div class="container col-md-12">
+		<button class="btn btn-primary" data-toggle="modal" data-target="#modal_login">LOGIN</button>
+
+		<!-- MODAL -->
+		<div class="modal fade" id="modal_login" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+
+					<div class="modal-header contact_modal_header text-center">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_icon">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h1 class="modal-title" id="modal_title">LOGIN</h1>
+					</div>
+
+					<div class="modal-body">
+						<form class="contact-form " action="/new_page" id="login_row" method="POST">
+							
+								<div class="form-field large" id="login_col">
+									 <i class="fas fa-envelope" id="icons"></i>
+							         <input type="email" class="input-text" name="emailfield" required>
+							         <label class="label">E-mail</label>
+							    </div>
+
+							    <div class="form-field large" id="login_col">
+							         <i class="fas fa-pencil-alt" id="icons"></i>
+							         <input type="password" class="input-text" name="passwordfield" required>
+							         <label class="label">Password</label>
+							    </div>
+
+							    <!-- <div class="form-field large" id="login_col">
+									<select class="form-control input-text" name="sel">
+										<option class="active input-text">Select Status</option>
+										<option>Active</option>
+										<option>Block</option>
+									</select>
+									<label class="label">Status</label>
+								</div> -->
+					</div>
+
+					<div class="modal-footer">
+						<form class="contact-form " id="login_row">
+							 <div class="form-field col x-100 text-center">
+						         <button class="btn submit-button" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+						     </div>
+						 </form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<style>
+		.contact_modal_header
+		{
+		  background-color: #303F9F;
+		  border:none;
+		}
+		#modal_title
+		{
+		  color: #fff;
+		}
+		#login_row 
+		{
+		  margin: 8px 0;
+		}
+		#login_row:after 
+		{
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+		#login_row #login_col 
+		{
+		  padding: 0 20px;
+		  float: left;
+		  box-sizing: border-box;
+		}
+		#login_row #login_col.large 
+		{
+		  width: 100%;
+		}
+		#login_col
+		{
+		  position: relative;
+		  margin: 32px 0;
+		}
+		.input-text 
+		{
+		  display: block;
+		  width: 90%;
+		  height: 36px;
+		  border-width: 0 0 2px 0;
+		  border-color: #9E9E9E;
+		  font-family: Lusitana, serif;
+		  font-size: 18px;
+		  line-height: 26px;
+		  font-weight: 400;
+		  margin-left: 44px;
+
+		}
+		.input-text:focus 
+		{
+		  outline: none;
+		  border-color: #3F51B5;
+		}
+		.input-text:focus + .label, .input-text.not-empty + .label 
+		{
+		  transform: translateY(-24px);
+		  color: #3F51B5;
+		  font-size: 17px;
+		}
+		.label 
+		{
+		  position: absolute;
+		  left: 52px;
+		  bottom: 26px;
+		  font-family: Lusitana, serif;
+		  font-size: 22px;
+		  line-height: 26px;
+		  font-weight: 400;
+		  color: #888;
+		  transition: transform .2s ease-in-out;
+		}
+		.submit-button 
+		{
+		  display: inline-block;
+		  background-color: #fff;
+		  color: #303F9F;
+		  font-family: Raleway, sans-serif;
+		  text-transform: uppercase;
+		  letter-spacing: 2px;
+		  font-size: 16px;
+		  line-height: 24px;
+		  padding: 8px 16px;
+		  border-color:#3F51B5; 
+		}
+		.submit-button:hover
+		{
+		  color: #3F51B5;
+		   box-shadow: 0 0 20px #3F51B5;
+		}
+		#icons 
+		{
+		  font-weight: 600;
+		  color: #9E9E9E;
+		  font-size: 27px;
+		}
+		#close_icon
+		{
+		  color: #fff;
+		  opacity: 1;
+		}
+
+	</style>
+</body>
+	
+</html>

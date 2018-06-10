@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/invoice.css">
+</head>
+<body>
+	<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+                
+    			     <h2>Invoice</h2><h3 class="pull-right">Order # <%= payment_data[0].payment_id %></h3>
+              
+    		</div>
+    		<hr>
+    		
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    					<strong>Payment Method:</strong><br>
+    					Visa ending **** 4242<br>
+    					<%= payment_data[0].payment_email %>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					<strong>Order Date:</strong><br>
+    					<%= payment_data[0].date %><br><br>
+    				</address>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Membership</strong></td>
+        							<td class="text-center"><strong>Name: </strong></td>
+        							<td class="text-right"><strong>Contact: </strong></td>
+                                    <td class="text-center"><strong>Email: </strong></td>
+                                    <td class="text-right"><strong>Address: </strong></td>
+                                    <td class="text-center"><strong>Membership Price: </strong></td>
+
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr>
+    								<td><%= payment_data[0].membership_title %></td>
+    								<td class="text-center"><%= payment_data[0].payment_name %></td>
+    								<td class="text-right"><%= payment_data[0].payment_contact %></td>
+    								<td class="text-center"><%= payment_data[0].payment_email %></td>
+                                    <td class="text-right"><%= payment_data[0].payment_address %></td>
+                                    <td class="text-center">$<%= payment_data[0].membership_price %>.00</td>
+    							</tr>
+    							<tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Total</strong></td>
+    								<td class="no-line text-center">$<%= payment_data[0].membership_price %>.00</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+
+    		</div>
+                <div class="text-center"><a href="/"><button class="btn btn-primary">Back To Home Page</button></a><div>
+
+    	</div>
+    </div>
+</div>
+</body>
+</html>

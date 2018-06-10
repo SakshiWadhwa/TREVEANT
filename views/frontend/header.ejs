@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Treveant</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/css/login_modal_css.css">
+	<link rel="stylesheet" href="/static/css/about.css">
+	<link rel="stylesheet" href="../../static/css/wedding_service.css">
+
+	<script type="text/javascript">
+		if(!!window.performance && window.performance.navigation.type === 2){
+			window.location.reload();
+		}	
+	</script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top main_navbar">
+			<div class="navbar-header main_navbar_header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand brand_name" href="/">TREVEANTS</a>
+			</div>
+
+			<div class="container">
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<ul class="nav navbar-nav navbar-right main_navbar_list">
+						<li>
+							<a href="/about_section">ABOUT US</a>
+						</li>
+
+						<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="service">SERVICES &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu main_navbar_dropdown">
+								<% for(var i = 0; i < data_category.length; i++) { %>
+									<li>
+									<% if(typeof service_data =='undefined') { %>
+										<a href="#" data-toggle="modal" data-target="#service_modal" id="panel_button_<%= data_category[i].category_id%>" data_value="<%= data_category[i].category_name%>" a_value="<%= data_category[i].category_id%>">
+									<% } else {%>
+										<a href="/wedding_service/<%= data_category[i].category_name %>/<%= data_category[i].category_id %>">
+									<% } %>
+									<%= data_category[i].category_name %></a></li>
+
+									<script>
+										$("#panel_button_<%= data_category[i].category_id%>").on("click",function()
+										{
+											var t = $(this).attr("data_value");
+											$("#cate_name").val(t);
+
+											var a = $(this).attr("a_value");
+											$("#cate_id").val(a);
+										});
+									</script>
+								<% } %>
+								<!-- <li><a href="/viewservice">View Service</a></li> -->
+							</ul>
+						</li>
+
+
+
+						
+						<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="service">PORTFOLIO &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu main_navbar_dropdown">
+								<% for(var i = 0; i < data_project.length; i++) { %>
+									<li>
+										<a href="/project_gallery/<%= data_project[i].project_title%>/<%= data_project[i].project_id%>"><%= data_project[i].project_title %></a>
+									</li>
+								<% } %>
+							</ul>
+						</li>
+
+						<li>
+							<a href='/#pricing'>MEMBERSHIP</a>
+						</li>
+
+
+						<li>
+							<a href="/#testimonial_section">TESTIMONIALS</a>
+						</li>
+
+						<li>
+							<a href="/blog_post">BLOGS</a>
+						</li>
+
+						<li>
+							<a href="#footer_id">CONTACT US</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+ 
+ <div class="modal fade" id="service_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						           <div class="modal-header">
+						            	<button type="button" class="close login_close_icon" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+
+						                <div role="tabpanel">
+						                    <ul class="nav nav-tabs tab_panel panel_list" role="tablist">
+						                        <li role="presentation" class="active tab_links_color" >
+						                        	<a  href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">
+						                        		<i class="fa fa-user mr-1"></i>  Login
+						                        	</a>
+						                        </li>
+						                        <li role="presentation" class="tab_links_color">
+						                        	<a  href="#registerTab" aria-controls="registerTab" role="tab" data-toggle="tab">
+						                        		<i class="fa fa-user-plus mr-1"></i> Register
+						                        	</a>
+						                        </li>
+						                    </ul>
+						                </div>
+						                <div class="modal-body login_modal_body">
+						                    <div class="tab-content">
+
+						                        <div role="tabpanel" class="tab-pane active" id="loginTab">
+						                        	<form action="/service_login" class="login_row" method="POST" enctype="multipart/form-data">
+
+						                        		<div class="form-field large" id="login_col">
+															 <i class="fas fa-tags" id="modal_icons"></i>
+															 <input type="text" class="login-input-text" name="ser_name" id="cate_name" value="" readonly>
+															 <label class="login_label">Service</label>
+														</div>
+
+														<div class="form-field ">
+															<input type="hidden" name="ser_id" id="cate_id" value="">
+														</div>
+
+														<div class="form-field large" id="login_col">
+															 <i class="fas fa-envelope" id="modal_icons"></i>
+															 <input type="email" class="login-input-text" name="cat_email" id="email" required="required">
+															 <label class="login_label">Email</label>
+														</div>
+
+														<div class="form-field large" id="login_col">
+															<i class="fa fa-lock prefix" id = "modal_icons"></i>
+													         <input type="password" class="login-input-text" required="required" name="cat_pswd" id="password">
+													         <label class="login_label">Password</label>
+													    </div>
+
+							                            <div class="text-center">
+							                                <button class="btn btn-login">Log In</button>
+							                            </div>
+							                        </form>
+						                        
+							                        <div class="modal-footer">
+							                            <div class="options text-center text-md-right mt-1  modal_links_color">
+							                                <p>Not a member? <a href=" #registerTab"  >Sign Up</a></p>
+							                                <p>Forgot <a href="#">Password?</a></p>
+							                            </div>
+							                        </div>
+
+						                        </div>
+
+						                        <!-- ................Register Tab................... -->
+
+						                        <div role="tabpanel" class="tab-pane" id="registerTab">
+						                        	<form class="login_row" action="/user_register" method="POST">
+														<div class="form-field large" id="login_col">
+															 <i class="fas fa-user" id="modal_icons"></i>
+															 <input type="text" class="login-input-text" name="user_fname" id="uname" required="required">
+															 <label class="login_label">First Name</label>
+														</div>
+
+														<div class="form-field large" id="login_col">
+															<i class="fas fa-user"  id="modal_icons"></i>
+													         <input type="text" class="login-input-text" required="required" name="user_lname" id="pswd">
+													         <label class="login_label">Last Name</label>
+													    </div>
+
+													    <div class="form-field large" id="login_col">
+															 <i class="fas fa-envelope" id="modal_icons"></i>
+															 <input type="email" class="login-input-text" name="login_email" id="" required="required">
+															 <label class="login_label">Email</label>
+														</div>
+
+														<div class="form-field large" id="login_col">
+															<i class="fa fa-lock prefix" id = "modal_icons"></i>
+													         <input type="password" class="login-input-text" required="required" name="login_pswd" id="confirmPswd">
+													         <label class="login_label">Password</label>
+													    </div>
+
+							                            <div class="text-center">
+							                                <button class="btn btn-login">Sign Up</button>
+							                            </div>
+							                        </form>
+							                        <div class="modal-footer login_footer">
+							                            <div class="options text-right modal_links_color text-center">
+							                                <p class="pt-1 ">Already have an account? <a href="#loginTab">Log In</a></p>
+							                            </div>
+							                        </div>
+						                        </div>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
+						    </div>
+ </div>
+
+
+
+	<style>
+		.container-fluid
+		{
+			padding: 0px;
+		}
+		.brand_name 
+		{
+			/*font-family: 'Anton', sans-serif;*/
+			font-family: 'Caveat Brush', cursive;
+			font-size: 35px !important;
+		}
+		.main_navbar, .dropdown-menu
+		{
+			background-color: #EC407A;
+		}
+		.main_navbar li a, .navbar-brand
+		{
+			color: white !important;
+		}
+		.main_navbar_list li a:hover
+		{
+			color: #EC407A !important;
+			background-color: white !important;
+			border-radius: 5px; 
+			border-color: #F06292;
+		}
+		.main_navbar_list li
+		{
+			 /*font-family: "Roboto Slab", serif;;*/
+			 /*font-family: 'Kaushan Script', cursive;*/
+			 font-family: 'Caveat Brush', cursive;
+			 font-size: 20px;
+		}
+		/*-------------------------------Navbar dropdown----------------------------*/
+		.main_navbar_dropdown>li>a 
+		{
+		    margin-left: -14px !important;
+		    margin-right: 0px !important;
+		    text-align: center;
+		}
+		.main_navbar_header
+		{
+			float: left !important;
+		}
+		/*----------------------------navbar text size----------------------------------*/
+		.main_navbar .main_navbar_list>li>a 
+		{
+		    font-size: 20px;
+		}
+		 /*---------------------------logo text size------------------------------------*/
+		 .main_navbar 
+		{
+		    font-size: 22px;
+		}
+		/*-----------------------------navbar size---------------------------------------*/
+		.main_navbar
+		{
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+		/*-----------------------------dropdown border------------------------------------*/
+		.main_navbar_list>li>.dropdown-menu
+		{
+			border-radius: 8px;
+			border-color: #F06292;
+			margin-top: 13px !important;
+			margin-left:12px !important;
+		}
+		/*----------------------------dropdown hover light right margin-------------------*/
+		
+		.main_navbar_dropdown>li>a:hover 
+		{
+		    width: 154px;
+		    margin-left: 1px !important;
+		    padding-left: 4px;
+		}
+		.main_navbar_list .dropdown-menu
+		{
+			left: -18px !important;
+		}
+		/*-----------------------------hamburger color and boder after click---------------*/
+		.main_navbar .navbar-toggle:focus, .main_navbar .navbar-toggle:hover 
+		{
+		    background-color: #F48FB1;
+		    border-color: #F06292;
+		}
+		/*-----------------------------hamburger background bg-----------------------------*/
+		.main_navbar .navbar-toggle .icon-bar 
+		{
+		    background-color: white;
+		}
+		/*-----------------------------hamburger border color------------------------------*/
+		.main_navbar .navbar-toggle 
+		{
+		    border-color: #EC407A;
+		}
+		/*----------------------------on click of hamburger top border---------------------*/
+		.main_navbar .navbar-collapse, .navbar-default .navbar-form 
+		{
+		    border-color: #F48FB1;
+		}
+		.main_navbar .main_navbar_list>.open>a, .main_navbar .main_navbar_list>.open>a:focus, .main_navbar .main_navbar_list>.open>a:hover 
+		{
+		    background-color: #F06292;
+		    border-radius: 5px;
+		}
+		#down_icon
+		{
+			font-size:12px;
+		}
+		#down_icon:hover
+		{
+			transform: rotate(180deg);
+		}
+		@media screen and (min-width: 0px) and (max-width: 1200px)
+		{
+			.main_navbar_header
+			{
+				float: none !important;
+			}
+		}
+	</style>

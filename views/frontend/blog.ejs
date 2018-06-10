@@ -1,0 +1,107 @@
+<%- include header %>
+<style>
+	
+	.gallery_heading
+	{
+		position: absolute;
+	    top: 33%;
+	    text-align: center;
+	    color: white;
+	    margin-left: 448px;
+	    font-family: 'Roboto Slab', serif;
+	}
+	.gallery_heading h2
+	{
+		font-size: 70px;
+		color: #cbb9a6;
+	}
+	.blog_heading
+	{
+		font-family: 'Courgette', cursive;
+		margin-top: 100px;
+		/*color: #cbb9a6;*/
+		color: #a3ad6f;
+	}
+	.date
+	{
+		margin-left: -14px;
+		/*color: #a3ad6f;*/
+		color: #cbb9a6;
+	}
+	.author
+	{
+		margin-left: 14px;
+		/*color: #a3ad6f;*/
+		color: #cbb9a6;
+	}
+	.blogs
+	{
+		margin-bottom: 100px !important;
+	}
+	@media (max-width: 500px) 
+	{
+		.gallery_heading
+		{
+			margin-left: 70px;
+			top: 0%;
+		}
+		.gallery_heading h2
+		{
+			font-size: 50px;
+		}
+		.author
+		{
+			margin-left: -10px;
+		}
+	}
+</style>
+<body>
+
+	<div class="container-fluid col-md-12">
+		<img src="/static/banner.png" class="img-responsive">
+		<div class="text-center gallery_heading">
+			<h2>Blog Portfolio</h2>
+		</div>
+	</div>
+
+	<div class=" container-fluid blogs">
+		<div class="col-md-1"></div>
+		<div class="col-md-5 ">
+			<% for(var i=0; i< blog_post_data.length; i = i + 2) 
+			{  %>
+				<a href="/blog_page_link/<%= blog_post_data[i].blog_title %>/<%= blog_post_data[i].blog_id %>">
+					<div class="text-center blog_heading"><h2><%= blog_post_data[i].blog_title %></h2></div>
+				</a>
+				<div class="col-md-6 date">
+					<h4><%= blog_post_data[i].blog_date %></h4>
+				</div>
+				<div class="col-md-6 author">
+					<h4>By <%= blog_post_data[i].blog_author %></h4>
+				</div>
+				<img src="../../.<%= blog_post_data[i].blog_img %>" class="img-responsive">
+
+			<% } %>
+		</div>
+		<!-- <div class="col-md-1"></div> -->
+
+		<div class="col-md-5 ">
+			<% for(var i=1; i< blog_post_data.length; i = i + 2) 
+			{  %>
+				<a href="/blog_page_link/<%= blog_post_data[i].blog_title %>/<%= blog_post_data[i].blog_id %>">
+					<div class="text-center blog_heading"><h2><%= blog_post_data[i].blog_title %></h2></div>
+				</a>
+				<div class="col-md-6 date">
+					<h4><%= blog_post_data[i].blog_date %></h4>
+				</div>
+				<div class="col-md-6 author">
+					<h4>By <%= blog_post_data[i].blog_author %></h4>
+				</div>
+				<img src="../../.<%= blog_post_data[i].blog_img %>" class="img-responsive">
+
+			<% } %>
+		</div>
+		<div class="col-md-1"></div>
+		<!-- <div class="col-md-offset-3"></div> -->
+	</div>
+
+<%- include footer %> 

@@ -1,0 +1,38 @@
+<%- include header %> 
+
+<div class="tab container">
+	<table border="2" width="50%" cellpadding="10" cellspacing="10">
+		<% for(var i = 0; i < data.length; i++) { %>
+			<tr>
+				<td> <%= data[i].category_id %></td>
+				<td> <%= data[i].service_id %> </td>
+				<td> <%= data[i].service_name %> </td>
+				<td> <%= data[i].service_img %> </td>
+				<td> <%= data[i].service_description %> </td>
+				<td> <%= data[i].book_amount %> </td>
+				
+
+				<td><a href="/view_ser_data/<%= data[i].service_id %>">View</a></td>
+				<td><a href="/update_ser_data/<%= data[i].service_id %>">Update</a></td>
+			</tr>
+		<% } %>
+	</table>
+</div>
+
+	<style>
+		table
+		{
+			border-spacing: 20px;
+		}
+		td 
+		{
+		  	padding: 10px;
+		}
+		.tab
+		{
+			padding-top: 120px;
+		}
+	</style>
+
+</body>
+</html>

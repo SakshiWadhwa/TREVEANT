@@ -1,0 +1,138 @@
+<%- include header %>
+<style>
+	.gallery_heading
+	{
+		position: absolute;
+	    top: 33%;
+	    text-align: center;
+	    color: white;
+	    margin-left: 190px;
+	    font-family: 'Roboto Slab', serif;
+	}
+	.gallery_heading h2
+	{
+		font-size: 70px;
+		color: #cbb9a6;
+	}
+	.blog_image
+	{
+		margin-top: 100px;
+		margin-bottom: 35px;
+	}
+	.blog_para1
+	{
+		margin-top: 35px;
+		margin-bottom: 20px;
+		text-align: justify;
+		font-family: 'PT Serif', serif;
+		color: #928b84;
+		font-size:15px;
+		line-height: 23px;
+	}
+	.blog_para2
+	{
+		margin-bottom: 25px;
+		text-align: justify;
+		font-family: 'PT Serif', serif;
+		color: #928b84;
+		font-size:15px;
+		line-height: 23px;
+	}
+	.tags
+	{
+		margin-bottom: 15px;
+		color: #a3ad6f;
+	}
+	.date
+	{
+		color: #cbb9a6;
+	}
+	.author
+	{
+		font-family: 'PT Serif', serif;
+		color: #cbb9a6;
+		font-size:15px;
+		line-height: 21px;
+	}
+	.share
+	{
+		margin-bottom: 50px;
+	}
+	.share_links
+	{
+		font-size: 21px;
+		color: #a3ad6f;
+	}
+	.round_img
+	{
+		border-radius: 7px;
+	}
+
+	@media (max-width: 1200px) 
+	{
+		.gallery_heading
+		{
+			top: -4%;
+			margin-left: 0px;
+		}
+		.gallery_heading h2
+		{
+			font-size: 36px;
+		}
+	}
+</style>
+<body>
+
+<div class="container-fluid col-md-12">
+	<img src="/static/banner.png" class="img-responsive">
+	<div class="text-center gallery_heading">
+		<h2><%= blog_page_title %></h2>
+	</div>
+</div>
+
+<div class="container">
+	<% for(var i=0; i< blog_page_data.length; i++) 
+			{  
+				if(blog_page_data[i].blog_id ==  blog_page_id ) 
+				{ %>
+					
+					<div class="col-md-7 col-md-offset-2 blog_image">
+						<img src="../../.<%= blog_page_data[i].blog_img %>" class="img-responsive round_img">
+					</div>
+					<div class="col-md-5 col-md-offset-2 date">
+						<%= blog_page_data[i].blog_date %>
+					</div>
+					<div class="col-md-5 author">
+						By <%= blog_page_data[i].blog_author %>
+					</div>
+					<div class="col-md-7 col-md-offset-2 blog_para1">
+						<%= blog_page_data[i].blog_description %>
+					</div>
+					<div class="col-md-7 col-md-offset-2 blog_para2">
+						<%= blog_page_data[i].blog_description %>
+					</div>
+
+					<div class="col-md-7 col-md-offset-2 tags">
+						<span style="color: #cbb9a6">T A G S</span> : Wedding, &nbsp;  Parties, &nbsp;  Events
+					</div>
+
+					<div class="col-md-7 col-md-offset-2 share">
+						<span style="color: #cbb9a6; font-size: 15px">S H A R E</span> :
+						<a href="#" class="facebook share_links"><i class="fab fa-facebook-f"></i></a> &nbsp;
+						<a href="#" class="twitter share_links"><i class="fab fa-twitter"></i></a> &nbsp;
+						<a href="#" class="instagram share_links"><i class="fab fa-instagram"></i></a> &nbsp;
+						<a href="#" class="googleplus share_links"><i class="fab fa-google-plus-g"></i></a> &nbsp;
+						<!-- <div class="social_links">
+							<div class="col-md-3 facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+							<div class="col-md-3 twitter"><a href="#"><i class="fab fa-twitter"></i></a></div>
+							<div class="col-md-3 instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+							<div class="col-md-3 googleplus"><a href="#"><i class="fab fa-google-plus-g"></i></a></div>
+						</div> -->
+					</div>
+						
+				<% } %>
+
+			<% } %>
+</div>
+
+<%- include footer %>

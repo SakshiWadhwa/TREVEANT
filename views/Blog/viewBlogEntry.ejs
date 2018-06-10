@@ -1,0 +1,40 @@
+<%- include header %> 
+<style>
+	.tab
+	{
+		padding-top: 120px;
+	}
+</style>
+
+	<div class="table-responsive container tab">
+		<h1 class="text-center"><%= data[0].blog_title %></h1>
+		<table class="table table-striped table-hover table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>Blog_Id</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Author</th>
+					<th>Image</th>
+					<th>Description</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+		      
+		    <tbody>
+				<% for(var i = 0; i < data.length; i++) { %>
+				   		<tr>
+				   			<td> <%= data[i].blog_id %> </td>
+				   			<td> <%= data[i].blog_title %> </td>			   			
+				   			<td> <%= data[i].blog_date %> </td>
+				   			<td> <%= data[i].blog_author %> </td>
+				   			<td> <%= data[i].blog_img %> </td>
+				   			<td> <%= data[i].blog_description %> </td>
+				   			<td> <%= data[i].blog_status %> </td>
+				   		</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<%- include header %> 
+
+<style>
+	.tab
+	{
+		padding-top: 120px;
+	}
+</style>
+
+<div class="table-responsive container-fluid tab">	
+	<h1 class="text-center">View Users</h1>
+	<form action="/deleteuser" method="POST" >
+		<table class="table table-striped table-hover table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th>User_Id</th>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Status</th>
+						<th>View</th>
+						<th>Update</th>
+						<th>Delete</th>
+						<th>Multiple_Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < data.length; i++) { %>
+						<tr>
+							<td> <%= data[i].user_id %> </td>
+							<td> <%= data[i].user_firstname %> </td>
+							<td> <%= data[i].user_lastname %> </td>
+				   			<td> <%= data[i].user_email %> </td>
+				   			<td> <%= data[i].user_password %> </td>
+				   			<td> <%= data[i].user_status %> </td>
+							
+							<td> <a href="/view_us_data/<%= data[i].user_id %>">View</a> </td>
+							<td> <a href="/update_us_data/<%= data[i].user_id %>">Update</a> </td>
+							<td> <a href="/delete_us_data/<%= data[i].user_id %>">Delete</a> </td>
+
+							<td> <input type="checkbox" name="check" value="<%= data[i].user_id %>"> delete<%= data[i].user_id %> </td>
+						</tr>
+					<% } %>
+				</tbody>
+		</table><br>
+		<input type="submit" name="submit" value="Delete Selected User">
+	</form>
+</body>
+</html>

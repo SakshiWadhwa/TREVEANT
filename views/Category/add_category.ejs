@@ -1,0 +1,82 @@
+<%- include header %> 
+<style>
+	.add_cat
+	{
+		padding-top: 120px;
+	}
+</style>
+
+	
+	<div class="container add_cat">
+		<% if(typeof data != 'undefined'){ %>
+
+			<form action="/update_category/<%= data[0].category_name %>" method="POST" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label for="Category">Category Name: </label>
+					<input type="text" name="cat_name" class="form-control" placeholder="Cateogory Name: " value="<%= data[0].category_name %>">
+				</div>
+
+				<div class="form-group">
+					<label for="Category">Icon: </label>
+					<input type="text" name="cat_icon" class="form-control" placeholder="Enter Icon">
+				</div>	
+				
+				<div class="form-group">
+					<label for="Category">Image Source: </label>
+					<input type="file" name="cat_img" class="form-control" placeholder="Enter Image Source">
+				</div>	
+				
+				<div class="form-group">
+				  <label for="description">Description: </label>
+				  <textarea class="form-control" rows="5" name="cat_description"></textarea>
+				</div>			
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="cat_status">
+						<option class="active"><%= data[0].status %></option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-default">Update</button>
+			</form>
+			
+		<% } else { %>
+			<form action="/addCategory" method="POST" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label for="Category">Category Name: </label>
+					<input type="text" name="cat_name" class="form-control" placeholder="Enter Cateogory">
+				</div>
+
+				<div class="form-group">
+					<label for="Category">Icon: </label>
+					<input type="text" name="cat_icon" class="form-control" placeholder="Enter Icon">
+				</div>
+
+				<div class="form-group">
+					<label for="Category">Image Source: </label>
+					<input type="file" name="cat_img" class="form-control" placeholder="Enter Image Source">
+				</div>
+
+				<div class="form-group">
+				  <label for="description">Description: </label>
+				  <textarea class="form-control" rows="5" name="cat_description"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="cat_status">
+						<option class="active">Select</option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		<% } %>
+	</div>
+</body>
+</html>

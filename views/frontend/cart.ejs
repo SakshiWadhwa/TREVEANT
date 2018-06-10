@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/invoice.css">
+</head>
+
+<style>
+   /* body
+    {
+        background-image: url("../static/bg7.jpeg");
+        background-repeat: no-repeat;
+    }*/
+    body
+    {
+        background-color: #EEEEEE;
+    }
+    .order_history
+    {
+        margin-top: 40px;
+    }
+</style>
+
+<body>
+                                        
+<div class="container cart_container">
+    <div class="row">
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+			     <h2>Cart</h2>
+    		</div>
+
+    		<hr>
+    		
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+                                    <td class="text-right"></td>
+        							<td class="text-left"></td>
+        							<td class="text-center"><strong>Service: </strong></td>
+        							<td class="text-right"><strong>Price: </strong></td>
+
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							 <% for(var i = 0; i < cart_data.length; i++) { %>
+                                     <tr>
+                                        <td><a href="/delete_service/<%= cart_data[i].id %>"><i class="fas fa-times"></i></a></td>
+        								<td><img src="<%= cart_data[i].service_img %>" class="img-responsive" style="height: 20px; width: 40px"></td>
+        								<td class="text-center"><%= cart_data[i].service_name %></td>
+        								<td class="text-right">$<%= cart_data[i].book_amount %>.00</td>
+    							     </tr>
+                                <% } %>
+    							
+    						</tbody>
+                                 <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center"><strong>Sub Total</strong></td>
+                                    <td class="no-line text-right">
+                                        <%
+                                         var x=0;
+                                         for(var j = 0; j < cart_data.length; j++) {
+                                            x += parseInt(cart_data[j].book_amount);
+                                        } %>
+                                       
+                                    <strong>$<%= x %>.00</strong>
+                                    
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">Membership: </td>
+                                    <td class="no-line text-right">
+                                     
+                                    <%= discount[0].membership_price %>%
+                                    
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center"><strong>Total: </strong></td>
+                                    <td class="no-line text-right">
+                                     
+                                     <%
+                                        var y = 0;
+                                        y = x - (x * (discount[0].membership_price)/100);
+                                     %>
+
+                                    <strong>$<%= y %>.00</strong>
+                                    
+                                    </td>
+                                </tr>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+            
+             <a href="/proceed_order/<%=x %>"><button type="submit"  class="btn btn-basic" style="float: left; background-color: #C2185B; color: #fff" >Proceed to Pay</button></a>
+
+            <a href="/cancel_order"><button type="submit"  class="btn btn-basic" style="float: right">Cancel</button></a>
+        </div>
+    </div>
+
+     <div class="row order_history">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Previous Orders</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <td class="text-right"></td>
+                                    <td class="text-left"></td>
+                                    <td class="text-center"><strong>Service: </strong></td>
+                                    <td class="text-center"><strong>Price: </strong></td>
+                                    <td class="text-center"><strong>Oder Id: </strong></td>
+                                    <td class="text-center"><strong>Date: </strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                 <% for(var i = 0; i < history_data.length; i++) { %>
+                                     <tr>
+                                        <td></td>
+                                        <td><img src="<%= history_data[i].service_img %>" class="img-responsive" style="height: 20px; width: 40px"></td>
+                                        <td class="text-center"><%= history_data[i].service_name %></td>
+                                        <td class="text-center">$<%= history_data[i].book_amount %>.00</td>
+                                        <td class="text-center">$<%= history_data[i].order_id %>.00</td>
+                                        <td class="text-right"><%= history_data[i].order_date %>.00</td>
+                                     </tr>
+                                <% } %>
+                                
+                            </tbody>
+                                 
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

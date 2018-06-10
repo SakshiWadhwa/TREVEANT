@@ -1,0 +1,124 @@
+<link rel="stylesheet" href="../../static/css/main.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+
+	<div class="container-fluid col-md-12 footer" id="footer_id">
+		<div class="container footer_section">
+			<div class="row">
+				<div class="col-md-3">
+					<h3>ABOUT US</h3>
+					<p class="footer_about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor.</p>
+				</div>
+				
+				<div class="col-md-3">
+					<h3>INSTAGRAM FEED</h3>
+					<div class="footer_insta">
+						<div class="footer_insta1">
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+						</div>
+						<div class="footer_insta2">
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<h3>CONTACT DETAILS</h3>
+					<div class="footer_links">
+						<p><i class="fas fa-map-marker-alt"></i><a href="#"> &nbsp;2130 Fulton Street, Chicago,  IL 94117-1080 USA</a></p>
+						<p><i class="glyphicon glyphicon-earphone"></i><a href="#">1-800-1234-567, 1-800-6780-345</a></p>
+						<p><i class="far fa-envelope-open"></i><a href="#">mailme@gmail.com</a></p>
+						<div class="social_links">
+							<div class="col-md-2 facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+							<div class="col-md-2 twitter"><a href="#"><i class="fab fa-twitter"></i></a></div>
+							<div class="col-md-2 instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+							<div class="col-md-2 googleplus"><a href="#"><i class="fab fa-google-plus-g"></i></a></div>
+							<div class="col-md-2 linkedin"><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+						</div>
+						<!-- <div class="col-md-2"></div> -->
+					</div>
+				</div>
+				<div class="col-md-3">
+					<h3>NEWSLETTER</h3>
+					<div class="footer_newletter">
+						<p>
+							Keep up with our always upcoming product features and technologies. Enter your e-mail and subscribe to our newsletter.
+						</p>
+						<button class="btn btn-defalut footer_button" data-toggle="modal" data-target="#modalSubmitForm">
+							SUBSCRIBE
+						</button>
+
+						<div class="modal fade" id="modalSubmitForm" role="dialog">
+							<div class="modal-dialog" role="document">
+								<!-- Modal Content -->
+								<div class="modal-content">
+									<div class="modal-header text-center contact_modal_header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_icon">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h1 class="modal-title" id="modal_title">GET IN TOUCH</h1>
+									</div>
+
+									<div class="modal-body">
+										<form class="contact-form" action="/subscribe"  method="POST">
+											<div class="form-field large" id="contact_col">
+												 <i class="fas fa-user" id="contact_icons"></i>
+												 <input type="text" class="contact_input-text" name="subscribe_name" required="required">
+												 <label class="contact_label">Name</label>
+											</div>
+											<div class="form-field large" id="contact_col">
+												 <i class="fas fa-envelope" id="contact_icons"></i>
+										         <input type="email" class="contact_input-text" name="subscribe_email" required>
+										         <label class="contact_label">E-mail</label>
+										    </div>
+									</div>
+
+									<div class="modal-footer">
+										
+											 <div class="form-field col x-100 text-center" id="contact_row">
+										         <button class="btn submit-button" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+										     </div>
+										 </form>
+
+									</div>
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+
+			<hr class="footer_line">
+				<nav class="navbar">
+					<ul class="nav navbar-nav footer_navbar_links">
+						<li><a href="/about_section">ABOUT</a></li>
+						<li><a href="/#service_section">SERVICES</a></li>
+						<li><a href="/blog_post">BLOG</a></li>
+						<li><a href="/#portfolio">PORTFOLIO</a></li>
+						<li><a href="#footer_id">CONTACT</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right footer_copyright">
+						&copy; 2018 All Rights Reserved <a href="#">Terms of Use</a> and <a href="#">Privacy Policy&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					</ul>
+				</nav>
+		</div>
+	</div>
+</body>

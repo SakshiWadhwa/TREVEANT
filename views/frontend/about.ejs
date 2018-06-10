@@ -1,0 +1,94 @@
+
+	<%- include header %>
+
+	<div class="container-fluid col-md-12">
+		<img src="/static/banner.png" class="img-responsive">
+		<div class="text-center about_heading">
+			<h2>ABOUT US</h2>
+		</div>
+	</div>
+
+	<div class="col-md-12 container about_section">
+		<div class="col-md-6 about_content">
+			<h1>Our <span>History</span></h1>
+			<hr>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</div>
+		<div class="col-md-5 about_img">
+			<img src="/static/about-feature.png" class="img-responsive">
+		</div>
+	</div>
+
+	<div class="container-fluid col-md-12 contact_container">
+		<img src="/static/banner.png" class="img-responsive">
+		<div class="about_contact">
+			<h1 class="about_title text-center">We Make Your Dream Come True</h1>
+			<button class="btn btn-defalut contact_modal_button"><a href="#"  data-toggle="modal" data-target="#modalContactForm">Contact Us</a></button>
+
+			<div class="modal fade" id="modalContactForm" role="dialog">
+				<div class="modal-dialog" role="document">
+					<!-- Modal Content -->
+					<div class="modal-content">
+						<div class="modal-header text-center contact_modal_header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="about_close_icon">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h1 class="modal-title" id="about_modal_title">GET IN TOUCH</h1>
+						</div>
+
+						<div class="modal-body">
+							<form class="contact-form " id="about_contact_row" method="POST">
+								<div class="form-field large" id="about_contact_col">
+									 <i class="fas fa-user" id="about_icons"></i>
+									 <input type="text" class="about_input-text" name="" required="required">
+									 <label class="label">Name</label>
+								</div>
+								<div class="form-field large" id="about_contact_col">
+									 <i class="fas fa-envelope" id="about_icons"></i>
+							         <input type="email" class="about_input-text" required>
+							         <label class="label">E-mail</label>
+							      </div>
+							      <div class="form-field large" id="about_contact_col">
+							         <i class="fas fa-pencil-alt" id="about_icons"></i>
+							         <textarea class="about_input-text" rows="4"></textarea>
+							         <label class="label">Message</label>
+							    </div>
+						</div>
+
+						<div class="modal-footer">
+								 <div class="form-field col x-100 text-center">
+							         <button class="btn about_submit-button" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+							         <!-- <input type="submit" name=""> -->
+							     </div>
+							 </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%- include footer %> 

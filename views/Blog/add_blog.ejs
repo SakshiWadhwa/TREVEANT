@@ -1,0 +1,92 @@
+<%- include header %> 
+<style>
+	.add_blog
+	{
+		padding-top: 120px;
+	}
+</style>
+
+	
+	<div class="container add_blog">
+		<% if(typeof data != 'undefined'){ %>
+
+			<form action="/update_blog/<%= data[0].blog_title %>" method="POST" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label for="Blog">Blog Title: </label>
+					<input type="text" name="blg_title" class="form-control" placeholder="Blog Title: " value="<%= data[0].blog_title %>">
+				</div>
+				
+				<div class="form-group">
+					<label for="date">Date: </label>
+					<input type="text" name="blg_date" class="form-control" placeholder="Enter Date">
+				</div>	
+
+				<div class="form-group">
+					<label for="author">Author: </label>
+					<input type="text" name="blg_author" class="form-control" placeholder="Author Name">
+				</div>
+
+				<div class="form-group">
+					<label for="img">Image: </label>
+					<input type="file" name="blg_img" class="form-control" placeholder="Image Source">
+				</div>
+
+				<div class="form-group">
+				    <label for="description">Description: </label>
+				    <textarea class="form-control" rows="5" name="blg_description"></textarea>
+				</div>	
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="blg_status">
+						<option class="active"><%= data[0].blog_status %></option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-default">Update</button>
+			</form>
+			
+		<% } else { %>
+			<form action="/addBlog" method="POST" enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label for="Blog">Blog Title: </label>
+					<input type="text" name="blg_title" class="form-control" placeholder="Blog Title: ">
+				</div>
+				
+				<div class="form-group">
+					<label for="date">Date: </label>
+					<input type="text" name="blg_date" class="form-control" placeholder="Enter Date">
+				</div>	
+
+				<div class="form-group">
+					<label for="author">Author: </label>
+					<input type="text" name="blg_author" class="form-control" placeholder="Author Name">
+				</div>
+
+				<div class="form-group">
+					<label for="img">Image: </label>
+					<input type="file" name="blg_img" class="form-control" placeholder="Image Source">
+				</div>
+
+				<div class="form-group">
+				    <label for="description">Description: </label>
+				    <textarea class="form-control" rows="5" name="blg_description"></textarea>
+				</div>	
+
+				<div class="form-group">
+					<label for="status">Status: </label>
+					<select class="form-control" name="blg_status">
+						<option class="active">Select</option>
+						<option>active</option>
+						<option>block</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		<% } %>
+	</div>
+</body>
+</html>

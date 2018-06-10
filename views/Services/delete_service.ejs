@@ -1,0 +1,51 @@
+<%- include header %> 
+
+<style>
+	.tab
+	{
+		padding-top: 120px;
+	}
+</style>
+
+	<div class="table-responsive container-fluid tab">	
+		<h1 class="text-center">View Services</h1>
+
+		<form action="/deleteservice" method="POST">
+			<table class="table table-striped table-hover table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th>Service_Id</th>
+						<th>Category_Id</th>
+						<th>Name</th>
+						<th>Image</th>
+						<th>Description</th>
+						<th>Book Amount</th>
+						<th>View</th>
+						<th>Update</th>
+						<th>Delete</th>
+						<th>Multiple_Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < data.length; i++) { %>
+						<tr>
+							<td> <%= data[i].service_id %> </td>
+							<td> <%= data[i].category_id %> </td>
+							<td> <%= data[i].service_name %> </td>
+							<td> <%= data[i].service_img %> </td>
+							<td> <%= data[i].service_description %> </td>
+							<td> <%= data[i].book_amount %> </td>
+							
+							<td> <a href="/view_ser_data/<%= data[i].service_id %>">View</a> </td>
+							<td> <a href="/update_ser_data/<%= data[i].service_id %>">Update</a> </td>
+							<td> <a href="/delete_ser_data/<%= data[i].service_id %>">Delete</a> </td>
+
+							<td> <input type="checkbox" name="check" value="<%= data[i].service_id %>"> delete<%= data[i].service_id %> </td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table><br>
+			<input type="submit" name="submit" value="Delete Selected Service">
+		</form>
+</body>
+</html>

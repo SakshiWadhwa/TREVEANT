@@ -1,0 +1,677 @@
+
+<%- include header %>
+<!--____________________________________________________________HEADING________________________________________________________-->
+	<div class="container-fluid col-md-12" id="heading">
+		<img src="/static/testimonweial_bg.jpg" class="img-resonsive"> 
+		<div class="text-center " id="heading_txt">
+			<h1>PLAN YOUR EVENT WITH US</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat.
+		    </p>
+		    <button class="btn btn-defalut"><a href="/about_section">LEARN MORE</a></button>
+		</div>	
+	</div>
+
+<!--____________________________________________________________SERVICES_______________________________________________________-->
+	<div class=" container col-md-12 text-center" id="service_section">
+		<div class="row heading">
+			<h1>SERVICES<hr align="center" class="sevice_highlight"></h1>
+		</div>
+		<div class="service_container">
+			<% for(var i=0;i< data_category.length;i++) { %>
+				<div class="col-md-4">
+						<% if(typeof service_data =='undefined') { %>
+							<a href="#" data-toggle="modal" data-target="#service_modal" id="service_panel_button_<%= data_category[i].category_id%>" data_value="<%= data_category[i].category_name%>" a_value="<%= data_category[i].category_id%>">
+						<% } else {%>
+							<a href="/wedding_service/<%= data_category[i].category_name%>/<%= data_category[i].category_id%>">
+						<% } %>
+								<span class="fa-stack fa-4x span_circle">
+								    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+								    <i class="<%= data_category[i].category_icon%>"></i>
+							    </span>
+							</a>
+					<h3><%= data_category[i].category_name%></h3>
+					<hr class="underline">
+					<p class="text">
+						<%= data_category[i].category_description%>
+					</p>
+
+					<script>
+						$("#service_panel_button_<%= data_category[i].category_id%>").on("click",function()
+						{
+							var t = $(this).attr("data_value");
+							$("#cate_name").val(t);
+
+							var a = $(this).attr("a_value");
+							$("#cate_id").val(a);
+						});
+					</script>
+
+				</div>
+				
+			<%}%>
+		</div>	
+	</div>
+
+
+	<div class="modal fade" id="service_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		           <div class="modal-header">
+		            	<button type="button" class="close login_close_icon" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+		                <div role="tabpanel">
+		                    <ul class="nav nav-tabs tab_panel panel_list" role="tablist">
+		                        <li role="presentation" class="active tab_links_color" >
+		                        	<a  href="#service_loginTab" aria-controls="service_loginTab" role="tab" data-toggle="tab">
+		                        		<i class="fa fa-user mr-1"></i>  Login
+		                        	</a>
+		                        </li>
+		                        <li role="presentation" class="tab_links_color">
+		                        	<a  href="#service_registerTab" aria-controls="service_registerTab" role="tab" data-toggle="tab">
+		                        		<i class="fa fa-user-plus mr-1"></i> Register
+		                        	</a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <div class="modal-body login_modal_body">
+		                    <div class="tab-content">
+
+		                        <div role="tabpanel" class="tab-pane active" id="service_loginTab">
+		                        	<form action="/service_login" class="login_row" method="POST" enctype="multipart/form-data">
+
+		                        		<div class="form-field large" id="login_col">
+											 <i class="fas fa-tags" id="modal_icons"></i>
+											 <input type="text" class="login-input-text" name="ser_name" id="cate_name" value="" readonly>
+											 <label class="login_label">Service</label>
+										</div>
+
+										<div class="form-field ">
+											<input type="hidden" name="ser_id" id="cate_id" value="">
+										</div>
+
+										<div class="form-field large" id="login_col">
+											 <i class="fas fa-envelope" id="modal_icons"></i>
+											 <input type="email" class="login-input-text" name="cat_email" id="email" required="required">
+											 <label class="login_label">Email</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fa fa-lock prefix" id = "modal_icons"></i>
+									         <input type="password" class="login-input-text" required="required" name="cat_pswd" id="password">
+									         <label class="login_label">Password</label>
+									    </div>
+
+			                            <div class="text-center">
+			                                <button class="btn btn-login">Log In</button>
+			                            </div>
+			                        </form>
+		                        
+			                        <div class="modal-footer">
+			                            <div class="options text-center text-md-right mt-1  modal_links_color">
+			                                <p>Not a member? <a href=" #service_registerTab"  >Sign Up</a></p>
+			                                <p>Forgot <a href="#">Password?</a></p>
+			                            </div>
+			                        </div>
+
+		                        </div>
+
+		                        <!-- ................Register Tab................... -->
+
+		                        <div role="tabpanel" class="tab-pane" id="service_registerTab">
+		                        	<form class="login_row" action="/user_register" method="POST">
+										<div class="form-field large" id="login_col">
+											 <i class="fas fa-user" id="modal_icons"></i>
+											 <input type="text" class="login-input-text" name="user_fname" id="uname" required="required">
+											 <label class="login_label">First Name</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fas fa-user"  id="modal_icons"></i>
+									         <input type="text" class="login-input-text" required="required" name="user_lname" id="pswd">
+									         <label class="login_label">Last Name</label>
+									    </div>
+
+									    <div class="form-field large" id="login_col">
+											 <i class="fas fa-envelope" id="modal_icons"></i>
+											 <input type="email" class="login-input-text" name="login_email" id="" required="required">
+											 <label class="login_label">Email</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fa fa-lock prefix" id = "modal_icons"></i>
+									         <input type="password" class="login-input-text" required="required" name="login_pswd" id="confirmPswd">
+									         <label class="login_label">Password</label>
+									    </div>
+
+			                            <div class="text-center">
+			                                <button class="btn btn-login">Sign Up</button>
+			                            </div>
+			                        </form>
+			                        <div class="modal-footer login_footer">
+			                            <div class="options text-right modal_links_color text-center">
+			                                <p class="pt-1 ">Already have an account? <a href="#service_loginTab">Log In</a></p>
+			                            </div>
+			                        </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	</div>	
+
+
+<!--____________________________________________________________PORTFOLIO_________________________________________________________-->
+
+	<div class="container-fluid col-md-12" id="portfolio">
+		<div class="row">
+			<div class="gallery">
+				<% for(var i=0; i< data_project.length; i++) { %>
+					<div class="wedding_gallery">
+						<a href="#" class="img_text">
+							<img src="<%= data_project[i].project_img %>" class="img-responsive image">
+							<div class="middle_text">
+		    					<div>
+		    						<a href="/project_gallery/<%= data_project[i].project_title%>/<%= data_project[i].project_id%>"><%= data_project[i].project_title%></a>
+		    					</div>
+		    				</div>
+		    			</a>
+    				</div>
+    			<%}%>
+			</div>
+		</div>
+	</div>
+
+<!--____________________________________________________________CONSULTATION_______________________________________________________-->
+
+	<div class="container-fluid col-md-12" id="consultation">
+		<div class="consult_row">
+			<div class="text-center col-md-8">
+				<h1>DO YOU NEED A CONSULTATION?</h1>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor.
+				</p>
+			</div>
+			<div class="text-center col-md-4">
+				<button class="btn btn-defalut consult_button"><a href="#">LEARN MORE</a></button>
+
+			</div>
+		</div>
+	</div>
+
+<!--____________________________________________________________PRICING_____________________________________________________________-->
+	<div class="col-md-12 container-fluid" id="pricing">
+		<div class="row heading text-center">
+			<h1>MEMBERSHIP<hr align="center" class="pricing_highlight"></h1>
+		</div>
+		<div class="container text-center" id="panel_container">
+			<div class="row">
+				<div class="panel-group price_panel_group">
+					<% for(var i=0; i< data_membership.length; i++) { %>
+						<div class="col-md-3">
+							<div class="panel panel-primary price_panel">
+								<div class="panel-heading price_panel_heading">
+									<h2><%= data_membership[i].membership_title%></h2>
+								</div>
+								<div class="panel-body panel-one">
+
+									<h2>$<%= data_membership[i].membership_price%>.00</h2>
+
+									<% if(typeof service_data =='undefined') { %>
+
+										<button onclick="membership(this)" class="btn " data-toggle="modal" data-target="#product_modal" id="panel_button" value="<%= data_membership[i].membership_title%>">
+											ORDER NOW
+										</button>
+										
+									<% } else {%>
+										<button id="panel_button" class="btn "><a href="/payment/<%= data_membership[i].membership_title%>">ORDER NOW</a></button>
+									<% } %>
+
+									
+								</div>
+								<div class="panel-footer price_panel_footer">
+									<p class="price_text">
+										<%= data_membership[i].membership_description%>
+									</p>
+								</div>
+							</div>
+						</div>
+					<%}%>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="product_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		           <div class="modal-header">
+		            	<button type="button" class="close login_close_icon" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+
+		                <div role="tabpanel">
+		                    <ul class="nav nav-tabs tab_panel panel_list" role="tablist">
+		                        <li role="presentation" class="active tab_links_color" >
+		                        	<a  href="#mem_loginTab" aria-controls="mem_loginTab" role="tab" data-toggle="tab">
+		                        		<i class="fa fa-user mr-1"></i>  Login
+		                        	</a>
+		                        </li>
+		                        <li role="presentation" class="tab_links_color">
+		                        	<a  href="#mem_registerTab" aria-controls="mem_registerTab" role="tab" data-toggle="tab">
+		                        		<i class="fa fa-user-plus mr-1"></i> Register
+		                        	</a>
+		                        </li>
+		                    </ul>
+		                </div>
+		                <div class="modal-body login_modal_body">
+		                    <div class="tab-content">
+
+		                        <div role="tabpanel" class="tab-pane active" id="mem_loginTab">
+		                        	<form action="/payment_login" class="login_row" method="POST">
+
+		                        		<div class="form-field large" id="login_col">
+											 <i class="fas fa-tags" id="modal_icons"></i>
+											 <input type="text" class="login-input-text" name="mem_title" id="membership_title" value="" readonly>
+											 <label class="login_label">Membership</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											 <i class="fas fa-envelope" id="modal_icons"></i>
+											 <input type="email" class="login-input-text" name="login_email" id="email" required="required">
+											 <label class="login_label">Email</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fa fa-lock prefix" id = "modal_icons"></i>
+									         <input type="password" class="login-input-text" required="required" name="login_pswd" id="password">
+									         <label class="login_label">Password</label>
+									    </div>
+
+			                            <div class="text-center">
+			                                <button class="btn btn-login">Log In</button>
+			                            </div>
+			                        </form>
+		                        
+			                        <div class="modal-footer">
+			                            <div class="options text-center text-md-right mt-1  modal_links_color">
+			                                <p>Not a member? <a  href="#mem_registerTab" data-toggle="tab">Sign Up</a></p>
+			                                <p>Forgot <a href="#">Password?</a></p>
+			                            </div>
+			                        </div>
+
+		                        </div>
+		                        
+		                        <!-- ................Register Tab................... -->
+
+		                        
+		                        <div role="tabpanel" class="tab-pane" id="mem_registerTab">
+		                        	<form class="login_row" action="/user_register" method="POST">
+										<div class="form-field large" id="login_col">
+											 <i class="fas fa-user" id="modal_icons"></i>
+											 <input type="text" class="login-input-text" name="user_fname" id="uname" required="required">
+											 <label class="login_label">First Name</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fas fa-user"  id="modal_icons"></i>
+									         <input type="text" class="login-input-text" required="required" name="user_lname" id="pswd">
+									         <label class="login_label">Last Name</label>
+									    </div>
+
+									    <div class="form-field large" id="login_col">
+											 <i class="fas fa-envelope" id="modal_icons"></i>
+											 <input type="email" class="login-input-text" name="login_email" id="" required="required">
+											 <label class="login_label">Email</label>
+										</div>
+
+										<div class="form-field large" id="login_col">
+											<i class="fa fa-lock prefix" id = "modal_icons"></i>
+									         <input type="password" class="login-input-text" required="required" name="login_pswd" id="confirmPswd">
+									         <label class="login_label">Password</label>
+									    </div>
+
+			                            <div class="text-center">
+			                                <button class="btn btn-login">Sign Up</button>
+			                            </div>
+			                        </form>
+			                        <div class="modal-footer login_footer">
+			                            <div class="options text-right modal_links_color text-center">
+			                                <p class="pt-1 ">Already have an account? <a href="#mem_loginTab">Log In</a></p>
+			                            </div>
+			                        </div>
+		                        </div>
+
+		                    </div>
+		                </div>
+		            </div>
+		          
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+<!--____________________________________________________________TESTIMONIAL____________________________________________________-->
+	<div class="col-md-12 container-fluid" id="testimonial_section">
+		<div class="row heading text-center">
+			<h1>REVIEWS<hr align="center" class="testimonial_highlight"></h1>
+		</div>
+		<div class="col-md-12 container">
+			<div class="carousel slide carousel-fade" data-ride="carousel" id="testimonial_carousel">
+				<div class="carousel-inner">
+					<% 
+						var cv= 0;
+						for(var i=0; i < data_testimonial.length; i++) 
+						{
+							if(cv == 0)
+							{
+							   %>
+								   <div class="item active">
+							  <%}
+							else
+							{
+								%>
+									<div class="item">
+								<%
+							}
+							%>
+							<div class="col-md-4">
+								<img src=" <%= data_testimonial[i].testimonial_img %>" class="img-responsive img-circle" id="circular_img">
+							</div>
+							<div class="col-md-8" id="testimonial_para">
+								<p><i class="fas fa-quote-left" id="quote_icon"></i></p>
+								<p>
+									<%= data_testimonial[i].testimonial_review %>
+
+								</p>
+								<div class="testimonial_name">
+									<h3><%= data_testimonial[i].testimonial_name %></h3>
+									<h5><%= data_testimonial[i].testimonial_designation %></h5>
+								</div>
+							</div>
+						</div>
+						<% cv++; }
+					 %>
+							
+				</div>
+				<a class="left carousel-control" href="#testimonial_carousel" data-slide="prev">
+				    <span class="fas fa-chevron-circle-left" id="left_arrow"></span>
+				</a>
+			    <a class="right carousel-control" href="#testimonial_carousel" data-slide="next">
+				    <span class="fas fa-chevron-circle-right" id="right_arrow"></span>
+				    <span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+<!--____________________________________________________________BLOGS________________________________________________________________-->
+
+	<div class="container-fluid col-md-12 blog" id="blog_container">
+		<div class="container-fluid row heading heading text-center">
+			<h1>LATEST BLOG POSTS<hr align="center" class="blogs_highlight"></h1>
+		</div>
+		<div class="container blog_container">
+			<div class="row">
+				<div class="panel-group">
+					<% for(var i=0; i< 3; i++) { %>
+						<div class="col-md-4">
+							<div class="panel ">
+								<div class="col-md-12 panel-heading">
+									<img src="<%= data_blog[i].blog_img%>" class="img-resonsive img-thumbnail">
+								</div>
+								<div class="panel-body panel-one">
+									<div class="col-md-12">
+										<div class="col-md-3">
+											<a href="/blog_page_link/<%= data_blog[i].blog_title %>/<%= data_blog[i].blog_id %>">
+												<button class="btn btn-defalut blog_button">VIEW</button>
+											</a>
+										</div>
+										<div class="col-md-8 col-md-offset-1">
+											<h4 id="name_color">by <%= data_blog[i].blog_author %></h4>
+										</div>
+									</div>
+									<div class="col-md-12 news_container">
+										<h4><a href="#" class="blog_a"><%= data_blog[i].blog_title %></a></h4>
+									</div>
+								</div>
+								<div class="panel-footer blog_footer">
+										<h5 class="text-center blog_date"><%= data_blog[i].blog_date %></h5>
+								</div>
+							</div>
+						</div>
+					<% } %>
+				</div>
+
+				<div class="text-center col-md-12">
+					<a href="/blog_post"><button class="btn btn-defalut all_blog_button">VIEW ALL BLOG POSTS</button></a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+<!--_________________________________________________CONTACT US_________________________________________________________________-->
+
+	<div class="container-fluid col-md-12" id="contact_container">
+		 <div class="container contact_content">
+		 	<p class="text-center"><b>TREVEANTS</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit. <b>
+
+		 		<a class="contact_link" href="#" data-toggle="modal" data-target="#modalContactForm">Contact us now!</a></b></p>
+
+		 	<div class="modal fade" id="modalContactForm" role="dialog">
+				<div class="modal-dialog" role="document">
+					<!-- Modal Content -->
+					<div class="modal-content">
+						<div class="modal-header text-center contact_modal_header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_icon">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h1 class="modal-title" id="modal_title">GET IN TOUCH</h1>
+						</div>
+
+						<div class="modal-body">
+							<form class="contact-form "  method="POST">
+								<div class="form-field large" id="contact_col">
+									 <i class="fas fa-user" id="contact_icons"></i>
+									 <input type="text" class="contact_input-text" name="" required="required">
+									 <label class="contact_label">Name</label>
+								</div>
+								<div class="form-field large" id="contact_col">
+									 <i class="fas fa-envelope" id="contact_icons"></i>
+							         <input type="email" class="contact_input-text" required>
+							         <label class="contact_label">E-mail</label>
+							      </div>
+							       <div class="form-field large" id="contact_col">
+							         <i class="fas fa-pencil-alt" id="contact_icons"></i>
+							         <textarea class="contact_input-text" rows="4"></textarea>
+							         <label class="contact_label">Message</label>
+							      </div>
+							<!-- </form> -->
+						</div>
+
+						<div class="modal-footer">
+							<form class="contact-form " id="contact_row">
+								 <div class="form-field col x-100 text-center">
+							         <button class="btn submit-button" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+							         <!-- <input type="submit" name=""> -->
+							     </div>
+							 </form>
+						</div>
+					</div>
+				</div>
+			</div>
+		 </div>
+	</div>
+
+	<button class="btn btn-lg back-to-top" id="back-to-top_hv" data-toggle="tooltip" data-placement="left">
+		<span class="glyphicon glyphicon-chevron-up"></span>
+	</button>
+
+	<script>
+
+		// $('#monitor').html($(window).width());
+
+		// $(window).resize(function() {
+		//     var viewportWidth = $(window).width();
+		//     $('#monitor').html(viewportWidth);
+		// });
+		// jQuery for goto top button
+		$(document).ready(function()
+		{
+	     $(window).scroll(function () {
+	            if ($(this).scrollTop() > 50) {
+	                $('#back-to-top_hv').fadeIn();
+	            } else {
+	                $('#back-to-top_hv').fadeOut();
+	            }
+	        });
+	        // scroll body to 0px on click
+	        $('#back-to-top_hv').click(function () {
+	            $('#back-to-top_hv').tooltip('hide');
+	            $('body,html').animate({
+	                scrollTop: 0
+	            }, 800);
+	            return false;
+	        });
+	        
+	        $('#back-to-top_hv').tooltip('show');
+
+	});
+</script>
+
+<!--_______________________________________________________FOOTER____________________________________________________________________-->
+	<!-- <div class="container-fluid col-md-12 footer">
+		<div class="container footer_section">
+			<div class="row">
+				<div class="col-md-3">
+					<h3>ABOUT US</h3>
+					<p class="footer_about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor.</p>
+				</div>
+				
+				<div class="col-md-3">
+					<h3>INSTAGRAM FEED</h3>
+					<div class="footer_insta">
+						<div class="footer_insta1">
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+						</div>
+						<div class="footer_insta2">
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+							<div class="col-md-4 footer_img">
+								<img src="/static/corporate_events.jpg" class="img-responsive">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<h3>CONTACT DETAILS</h3>
+					<div class="footer_links">
+						<p><i class="fas fa-map-marker-alt"></i><a href="#"> &nbsp;2130 Fulton Street, Chicago,  IL 94117-1080 USA</a></p>
+						<p><i class="glyphicon glyphicon-earphone"></i><a href="#">1-800-1234-567, 1-800-6780-345</a></p>
+						<p><i class="far fa-envelope-open"></i><a href="#">mailme@gmail.com</a></p>
+						<div class="social_links">
+							<div class="col-md-2 facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+							<div class="col-md-2 twitter"><a href="#"><i class="fab fa-twitter"></i></a></div>
+							<div class="col-md-2 instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+							<div class="col-md-2 googleplus"><a href="#"><i class="fab fa-google-plus-g"></i></a></div>
+							<div class="col-md-2 linkedin"><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<h3>NEWSLETTER</h3>
+					<div class="footer_newletter">
+						<p>
+							Keep up with our always upcoming product features and technologies. Enter your e-mail and subscribe to our newsletter.
+						</p>
+						<button class="btn btn-defalut footer_button" data-toggle="modal" data-target="#modalSubmitForm">SUBSCRIBE</button>
+
+						<div class="modal fade" id="modalSubmitForm" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header text-center contact_modal_header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_icon">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h1 class="modal-title" id="modal_title">GET IN TOUCH</h1>
+									</div>
+
+									<div class="modal-body">
+										<form class="contact-form "  method="POST">
+											<div class="form-field large" id="contact_col">
+												 <i class="fas fa-user" id="contact_icons"></i>
+												 <input type="text" class="contact_input-text" name="" required="required">
+												 <label class="contact_label">Name</label>
+											</div>
+											<div class="form-field large" id="contact_col">
+												 <i class="fas fa-envelope" id="contact_icons"></i>
+										         <input type="email" class="contact_input-text" required>
+										         <label class="contact_label">E-mail</label>
+										      </div>
+									</div>
+
+									<div class="modal-footer">
+										<form class="contact-form " id="contact_row">
+											 <div class="form-field col x-100 text-center">
+										         <button class="btn submit-button" type="submit">Send <i class="fas fa-paper-plane"></i></button>
+										     </div>
+										 </form>
+									</div>
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>
+			</div>
+
+			<hr class="footer_line">
+				<nav class="navbar">
+					<ul class="nav navbar-nav footer_navbar_links">
+						<li><a href="#">ABOUT</a></li>
+						<li><a href="#">SERVICES</a></li>b   
+						<li><a href="#">BLOG</a></li>
+						<li><a href="#">PORTFOLIO</a></li>
+						<li><a href="#">CONTACT</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right footer_copyright">
+						&copy; 2018 All Rights Reserved <a href="#">Terms of Use</a> and <a href="#">Privacy Policy&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					</ul>
+				</nav>
+		</div>
+	</div> -->
+
+
+	<script type="text/javascript">
+		function membership(a)
+		{
+		var x = a.value;
+		document.getElementById('membership_title').value  = x;
+		}
+
+	</script>
+
+	<%- include footer %> 
+
+

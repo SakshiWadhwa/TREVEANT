@@ -1,0 +1,47 @@
+<%- include header %> 
+
+<style>
+	.pswd
+	{
+		padding-top: 120px;
+	}
+	.navbar-default 
+	{
+    	background-color: #337ab7;;
+    }
+</style>
+
+	<form action="/admintable" method="POST" class="container pswd">
+		<table border="-1" cellpadding="40" cellspacing="40" width="100%">
+			<% for(var i = 0; i < data.length; i++) { %>
+				<tr>
+					<td> <%= data[i].id %> </td>
+					<td> <%= data[i].email %> </td>
+					<td> <%= data[i].password %> </td>
+					
+					
+<!-- 					<td> <a href="/view_cat_data/<%= data[i].category_id %>">View</a> </td>
+ -->					<td> <a href="/passwordChange/<%= data[i].email %>">Change Password</a> </td>
+					<td> <a href="/delete_cat_data/<%= data[i].email %>">Delete</a> </td>
+
+<!-- 					<td> <input type="checkbox" name="check" value="<%= data[i].category_id %>"> delete<%= data[i].category_id %> </td>
+ -->				</tr>
+			<% } %>
+		</table><br>
+		
+		<!-- <input type="submit" name="submit" value="Delete Selected Category"> -->
+	</form>
+	<form  action="/dash/<%= data[0].email %>" method="POST">
+		<div class="text-center">
+			<button class="btn btn-primary">Dashboard</button>
+		</div>
+	</form>
+	
+	<style>
+		.btn
+		{
+			color: white;
+		}
+	</style>
+</body>
+</html>

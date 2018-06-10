@@ -1,0 +1,98 @@
+<%- include header %>
+<style>
+	.gal 
+	{	
+		/*margin-top: 100px;*/
+    	column-count: 3;
+	}	
+	.gal img
+	{ 
+		width: 100%; 
+		padding: 7px 0;
+	}
+	.gallery_heading
+	{
+		position: absolute;
+	    top: 33%;
+	    text-align: center;
+	    color: white;
+	    margin-left: 450px;
+	    font-family: 'Roboto Slab', serif;
+	}
+	.gallery_heading h2
+	{
+		font-size: 50px;
+	}
+	@media (max-width: 500px) 
+	{
+		.gal 
+		{
+    		column-count: 1;
+
+		}
+		.gallery_heading
+		{
+			position: absolute;
+		    top: 12%;
+		    text-align: center;
+		    color: white;
+		    margin-left: 50px;
+		    font-family: 'Roboto Slab', serif;
+		}
+		.gallery_heading h2
+		{
+		    font-size: 30px !important;
+		}
+		.gall_div
+		{
+			top: 76px;
+		}
+		.gall_container
+		{
+			top: 80px;
+		}
+	}
+</style>
+<body>
+
+	<div class="container-fluid col-md-12 gall_div">
+		<img src="/static/banner.png" class="img-responsive">
+		<div class="text-center gallery_heading">
+			<h2><%= data_project_name %></h2>
+		</div>
+	</div>
+
+	<div class="col-md-12 container gall_container">
+		<div class="gal">
+			<% for(var i=0; i< data_gallery.length; i++) 
+			{  
+				if(data_gallery[i].project_id == 1 ) 
+				{ %>
+					
+					<img src="../../<%= data_gallery[i].gallery_img %>" class="img-responsive">
+						
+				<% } 
+				else if(data_gallery[i].project_id == 2 ) 
+				{ %>
+
+						<img src="../../<%= data_gallery[i].gallery_img %>" class="img-responsive">
+
+				<%}
+				else if(data_gallery[i].project_id == 3 ) 
+				{ %>
+
+						<img src="../../<%= data_gallery[i].gallery_img %>" class="img-responsive">
+
+				<%}
+				else if(data_gallery[i].project_id == 4 ) 
+				{ %>
+
+						<img src="../../<%= data_gallery[i].gallery_img %>" class="img-responsive">
+
+				<%}%>
+
+			<% } %>
+		</div>
+	</div>
+
+<%- include footer %> 

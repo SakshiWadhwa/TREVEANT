@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	if(!!window.performance && window.performance.navigation.type === 2){
+		window.location.reload();
+	}	
+
+	</script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">TREVEANTS</a>
+			</div>
+
+			<div class="container">
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<ul class="nav navbar-nav navbar-right ">
+						<li><a href="#">ABOUT US</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="service">Category &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a> -->
+							<!-- <ul class="dropdown-menu">
+								<li><a href="/add_category">Add Category</a></li>
+								<li><a href="/viewcategory">View Category</a></li>
+							</ul> -->
+						</li>
+
+						<li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="service">SERVICES &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Add Service</a></li>
+								<!-- <li><a href="/viewservice">View Service</a></li> -->
+							</ul>
+						</li>
+
+						<li><a href="#">PORTFOLIO</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="service">Profile &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/change_password">Change Password</a></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul> -->
+						</li>
+
+						<li><a href="#">MEMBERSHIP</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="users">Users &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/add_user">Add User</a></li>
+								<li><a href="/viewuser">View User</a></li>
+							</ul> -->
+						</li>
+
+
+						<li><a href="#">TESTIMONIALS</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="project">Project &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/add_project">Add Project</a></li>
+								<li><a href="/viewproject">View Project</a></li>
+							</ul> -->
+						</li>
+
+						<li><a href="#">BLOGS</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="gallery">Gallery &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/add_gallery">Add Gallery</a></li>
+								<li><a href="/viewgallery">View Gallery</a></li>
+							</ul> -->
+						</li>
+
+						<li><a href="#">CONTACT</a>
+						<!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" id="membership">Membership &nbsp;<i class="fa fa-caret-down" id="down_icon"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/add_membership">Add Membership</a></li>
+								<li><a href="/viewmembership">View Membership</a></li>
+							</ul> -->
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+ 
+
+	<style>
+		.container-fluid
+		{
+			padding: 0px;
+		}
+		.navbar, .dropdown-menu
+		{
+			background-color: #EC407A;
+		}
+		.navbar li a, .navbar-brand
+		{
+			color: white !important;
+
+		}
+		.navbar-nav li a:hover
+		{
+			color: #EC407A !important;
+			background-color: white !important;
+			border-radius: 5px; 
+			border-color: #F06292;
+		}
+		/*----------------------------navbar text size----------------------------------*/
+		.navbar-default .navbar-nav>li>a 
+		{
+		    font-size: 16px;
+		}
+		 /*---------------------------logo text size------------------------------------*/
+		 .navbar-default .navbar-brand 
+		{
+		    font-size: 22px;
+		}
+		/*-----------------------------navbar size---------------------------------------*/
+		.navbar-default
+		{
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+		/*-----------------------------dropdown border------------------------------------*/
+		.navbar-nav>li>.dropdown-menu
+		{
+			border-radius: 8px;
+			border-color: #F06292;
+			margin-top: 13px;
+			margin-left:12px;
+		}
+		/*----------------------------dropdown hover light right margin-------------------*/
+		.dropdown-menu>li>a
+		{
+			margin-left: 10px;
+			margin-right: 20px;
+			text-align: center;
+		}
+		.dropdown-menu>li>a:hover
+		{
+			width: 135px;
+		}
+		.navbar-right .dropdown-menu
+		{
+			left: -18px;
+		}
+		/*-----------------------------hamburger color and boder after click---------------*/
+		.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover 
+		{
+		    background-color: #4DB6AC;
+		    border-color: #F06292;
+		}
+		/*-----------------------------hamburger background bg-----------------------------*/
+		.navbar-default .navbar-toggle .icon-bar 
+		{
+		    background-color: white;
+		}
+		/*-----------------------------hamburger border color------------------------------*/
+		.navbar-default .navbar-toggle 
+		{
+		    border-color: #EC407A;
+		}
+		/*----------------------------on click of hamburger top border---------------------*/
+		.navbar-default .navbar-collapse, .navbar-default .navbar-form 
+		{
+		    border-color: #4DB6AC;
+		}
+		.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover 
+		{
+		    background-color: #F06292;
+		    border-radius: 5px;
+		}
+		#down_icon
+		{
+			font-size:12px;
+		}
+		#down_icon:hover
+		{
+			transform: rotate(180deg);
+		}
+	</style>

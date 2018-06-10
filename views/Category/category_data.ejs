@@ -1,0 +1,37 @@
+<%- include header %> 
+
+<div class="container tab">
+	<table border="2" width="50%" cellpadding="10" cellspacing="10" class="tab">
+		<% for(var i = 0; i < data.length; i++) { %>
+			<tr>
+				<td> <%= data[i].category_id %> </td>
+				<td> <%= data[i].category_name %> </td>
+				<td> <%= data[i].category_icon %> </td>
+				<td> <%= data[i].category_img %> </td>
+				<td> <%= data[i].category_description %> </td>
+				<td> <%= data[i].category_status %> </td>
+				
+
+				<td><a href="/view_cat_data/<%= data[i].category_id %>">View</a></td>
+				<td><a href="/update_cat_data/<%= data[i].category_id %>">Update</a></td>
+			</tr>
+		<% } %>
+	</table>
+</div>
+	<style>
+		table
+		{
+			border-spacing: 20px;
+		}
+		td 
+		{
+		  padding: 10px;
+		}
+		.tab
+		{
+			padding-top: 120px;
+		}
+	</style>
+
+</body>
+</html>
