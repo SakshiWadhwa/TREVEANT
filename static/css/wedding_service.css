@@ -1,0 +1,115 @@
+.container-fluid
+{
+	padding: 0px;
+	margin:0px;
+}
+.row
+{
+	width: 100%;
+	overflow: hidden;
+	margin: 0px;
+}
+button:focus, a:focus {
+    outline: none !important;
+    /*color: #fff !important;*/
+}
+a
+{
+	text-decoration: none !important;
+	/*color: #e5e7e8;*/
+}
+a:hover
+{
+	color: white;
+}
+.wed_service_container
+{
+	margin-top: 70px !important;
+}
+.service_title a
+{
+	color: #000;
+}
+.service_heading
+{
+	position: absolute;
+    top: 33%;
+    text-align: center;
+    color: white;
+    margin-left: 525px;
+    font-family: 'Courgette', cursive;	    
+}
+.service_heading h2
+{
+	font-size: 55px;
+}
+.service_title
+{
+	padding-top: 20.26em;
+	padding-bottom: 5.26em;
+}
+.service_title h2
+{
+	font-family: 'Courgette', cursive;	
+	font-size: 35px;
+	padding-bottom: 80px;
+	text-transform: lowercase;
+}
+.service_title h4
+{
+	font-family: 'Courgette', cursive;	
+	font-size: 24px;
+	padding-top: 20px;
+}
+.service_title h3
+{
+	font-family: 'Courgette', cursive;	
+}
+.service_title h4:hover
+{
+	color: #cbb9a6;
+}
+.order_btndiv
+{
+	padding-bottom: 20px;
+}
+
+.order_button
+{
+	background-color: #cbb9a6;
+	color: #fff;
+	font-family: 'PT Serif', serif;
+	font-size: 12px;
+	padding: 10px 12px;
+	letter-spacing: 3px;
+}
+.order_button:hover, .order_button:focus
+{
+	background-color: #a3ad6f;
+	color: #fff;
+	border: none;
+}
+@media screen and (min-width: 0px) and (max-width: 1200px)
+{
+	.wed_service_container
+	{
+		margin-top: 77px !important;
+	}
+	.service_heading
+	{
+		top: -20%;
+		margin-left: 65px;
+	}
+	.service_heading h2
+	{
+		font-size: 41px;
+	}
+	.service_title
+	{
+		padding: 3.26em 0;
+	}
+	.service_title h4
+	{
+		font-size: 25px;
+	}
+}
